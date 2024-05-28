@@ -2,10 +2,12 @@ import 'dart:typed_data';
 
 import 'package:flutter_pos_printer_platform/printer.dart';
 import 'package:flutter_pos_printer_platform/src/utils.dart';
-import 'package:image/image.dart';
+import 'package:image/image.dart' as img;
 
 class EscPosPrinter<T> extends GenericPrinter<T> {
-  EscPosPrinter(PrinterConnector<T> connector, T model, {this.dpi = 200, required this.width, this.beepCount = 4}) : super(connector, model);
+  EscPosPrinter(PrinterConnector<T> connector, T model,
+      {this.dpi = 200, required this.width, this.beepCount = 4})
+      : super(connector, model);
 
   final int width;
   final int dpi;
@@ -19,9 +21,12 @@ class EscPosPrinter<T> extends GenericPrinter<T> {
 
   @override
   Future<bool> image(Uint8List image, {int threshold = 150}) async {
-    final decodedImage = decodeImage(image)!;
+    final decodedImage = img.decodeImage(image)!;
 
-    final converted = toPixel(ImageData(width: decodedImage.width, height: decodedImage.height), paperWidth: width, dpi: dpi, isTspl: false);
+    var imgData =
+        ImageData(width: decodedImage.width, height: decodedImage.height);
+    final converted =
+        toPixel(imgData, paperWidth: width, dpi: dpi, isTspl: false);
 
     // final resizedImage = copyResize(decodedImage, width: converted.width, height: converted.height, interpolation: Interpolation.cubic);
 
