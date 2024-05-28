@@ -4,8 +4,8 @@ version: 1.0.12
 homepage: https://github.com/arthas1888/flutter_pos_printer_platform
 
 environment:
-  sdk: ">=2.13.0 <3.0.0"
-  flutter: ">=1.20.0"
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.19.0"
 
 dependencies:
   flutter:
@@ -21,7 +21,7 @@ dependencies:
 
 dev_dependencies:
   flutter_test:
-    sdk: flutter  
+    sdk: flutter
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
